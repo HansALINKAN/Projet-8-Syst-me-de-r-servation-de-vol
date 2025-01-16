@@ -205,9 +205,7 @@ int main()
         printf("2. Réserver un siège\n");
         printf("3. Annuler un siège\n");
         printf("4. Afficher les vols\n");
-        printf("5. Sauvegarder les données\n");
-        printf("6. Charger les données\n");
-        printf("7. Quitter\n");
+        printf("5. Quitter\n");
         printf("Votre choix : ");
         scanf("%d", &choix);
 
