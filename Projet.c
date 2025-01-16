@@ -100,7 +100,13 @@ void ReserverVol(){
                 rewind(fichier);
                 fprintf(fichier, "%d\n", b);
                 for (int j = 0; j < b; j++) {
-                    fprintf(fichier, "%s %d\n", v[j].code, v[j].sieges);
+                    for (int j = 0; j < b; j++) {
+                     fprintf(fichier, "%s %s %s %d\n",
+                        v[j].code,
+                        v[j].destination,
+                        v[j].date,
+                        v[j].sieges);
+
                 }
             } else {
                 printf("Desole, il n'y a plus de sieges disponibles pour ce vol.\n");
@@ -154,7 +160,13 @@ void AnnulerVol(){
                 rewind(fichier);
                 fprintf(fichier, "%d\n", b);
                 for (int j = 0; j < b; j++) {
-                    fprintf(fichier, "%s %d\n", v[j].code, v[j].sieges);
+                    for (int j = 0; j < b; j++) {
+                     fprintf(fichier, "%s %s %s %d\n",
+                        v[j].code,
+                        v[j].destination,
+                        v[j].date,
+                        v[j].sieges);
+
                 }
             } else {
                 printf("Tout les sieges sont disponibles.\n");
