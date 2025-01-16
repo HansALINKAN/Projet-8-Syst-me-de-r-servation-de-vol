@@ -93,8 +93,29 @@ void ReserverVol(){
     for (i = 0; i < b; i++) {
         if (strcmp(v[i].code, codeVol) == 0) {
             trouve = 1;
+            if (v[i].sieges > 0) {
+                v[i].sieges--;
+                printf("Reservation reussie ! Il reste %d sieges disponibles pour le vol %s.\n",
+                       v[i].sieges, v[i].code);
+                rewind(fichier);
+                fprintf(fichier, "%d\n", b);
+                for (int j = 0; j < b; j++) {
+                    fprintf(fichier, "%s %d\n", v[j].code, v[j].sieges);
+                }
+            } else {
+                printf("Desole, il n'y a plus de sieges disponibles pour ce vol.\n");
+            }
+            break;
+        }
+    }
 
-            
+    if (!trouve) {
+        printf("Vol non trouve.\n");
+    }
+
+    fclose(fichier);
+
+    return 0;            
         }
 
 void AnnulerVol(){
