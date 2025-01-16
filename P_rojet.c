@@ -63,3 +63,56 @@ void EnregistrerVol()
 
 
 }
+void AnnulerVol(){
+   printf("Bienvenue sur FlyNow\n");
+
+    int trouve = 0;
+    char codeVol[10];
+    char ligne[100];
+
+
+
+    FILE *fichier = fopen("InformationsVol.txt", "r+");
+    if (fichier == NULL) {
+        perror("Erreur d'ouverture du fichier");
+        return 1;
+    }
+
+
+    if (fgets(ligne, sizeof(ligne), fichier) != NULL) {
+        sscanf(ligne, "%d", &b);
+    }
+
+
+    for (i = 0; i < b && fgets(ligne, sizeof(ligne), fichier) != NULL; i++) {
+        sscanf(ligne, "%s %d", v[i].code, &v[i].sieges);
+    }
+    printf("Veuillez entrer le code du vol pour annuler la réservation : ");
+    scanf("%s", codeVol);
+    for (i = 0; i < b; i++) {
+        if (strcmp(v[i].code, codeVol) == 0) {
+            trouve = 1;
+            if (v[i].sieges > 0) {
+                v[i].sieges++;
+                printf("Annulation reussie ! Il reste %d sieges disponibles pour le vol %s.\n",
+                       v[i].sieges, v[i].code);
+                rewind(fichier);
+                fprintf(fichier, "%d\n", b);
+                for (int j = 0; j < b; j++) {
+                    fprintf(fichier, "%s %d\n", v[j].code, v[j].sieges);
+                }
+            } else {
+                printf("Tout les sieges sont disponibles.\n");
+            }
+            break;
+        }
+    }
+
+    if (!trouve) {
+        printf("Vol non trouve.\n");
+    }
+
+    fclose(fichier);
+
+    return 0;
+}
