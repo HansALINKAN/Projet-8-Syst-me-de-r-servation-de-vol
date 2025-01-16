@@ -116,3 +116,26 @@ void AnnulerVol(){
 
     return 0;
 }
+void AfficherVol()
+{
+    char ligne[100];
+    printf("Vols disponibles:\n");
+
+           FILE *fichier = fopen("InformationsVol.txt","r");
+            if(fichier==NULL){
+        perror("Erreur d'ouverture du fichier");
+        return 1;
+    }
+
+            if (fgets(ligne, sizeof(ligne), fichier) != NULL)
+            {
+                sscanf(ligne, "%d", &b);
+            }
+            for(i=0;i<=b && fgets(ligne, 100, fichier)!=NULL;i++)
+            {
+                if(sscanf(ligne,"%s %s %s %d",v[i].code,v[i].destination,v[i].date,&v[i].sieges)==4);
+                printf("Code:%s\t Destination:%s\t Date:%s\t Nombre de sieges:%d\n",v[i].code,v[i].destination,v[i].date,v[i].sieges);
+            }
+
+           fclose(fichier);
+            }
