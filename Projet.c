@@ -108,7 +108,8 @@ void ReserverVol(){
                         v[j].sieges);
 
                 }
-            } else {
+            } 
+                }      else {
                 printf("Desole, il n'y a plus de sieges disponibles pour ce vol.\n");
             }
             break;
@@ -168,7 +169,8 @@ void AnnulerVol(){
                         v[j].sieges);
 
                 }
-            } else {
+            }  
+            }else {
                 printf("Tout les sieges sont disponibles.\n");
             }
             break;
@@ -214,8 +216,8 @@ int main()
     do {
         printf("\nMenu :\n");
         printf("1. Ajouter un vol\n");
-        printf("2. Réserver un siège\n");
-        printf("3. Annuler un siège\n");
+        printf("2. Réserver un siege\n");
+        printf("3. Annuler un siege\n");
         printf("4. Afficher les vols\n");
         printf("5. Quitter\n");
         printf("Votre choix : ");
