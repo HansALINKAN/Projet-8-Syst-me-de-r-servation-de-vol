@@ -194,3 +194,43 @@ void AfficherVol()
 
            fclose(fichier);
             }
+
+int main()
+{
+
+    int choix;
+    do {
+        printf("\nMenu :\n");
+        printf("1. Ajouter un vol\n");
+        printf("2. Réserver un siège\n");
+        printf("3. Annuler un siège\n");
+        printf("4. Afficher les vols\n");
+        printf("5. Sauvegarder les données\n");
+        printf("6. Charger les données\n");
+        printf("7. Quitter\n");
+        printf("Votre choix : ");
+        scanf("%d", &choix);
+
+        switch (choix) {
+            case 1:
+                EnregistrerVol();
+                break;
+            case 2:
+                ReserverVol();
+                break;
+            case 3:
+                AnnulerVol();
+                break;
+            case 4:
+                AfficherVol();
+                break;
+            case 5:
+                printf("Au revoir !\n");
+                break;
+            default:
+                printf("Choix invalide.\n");
+        }
+    } while (choix != 5);
+
+ return 0 ;
+}
